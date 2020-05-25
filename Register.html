@@ -1,0 +1,146 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/stylesheet1.css">
+	
+	<script>
+	var val=function()
+	{
+		var firstname=document.getElementById('fname').value;
+		
+		if(firstname=="")
+		{
+			document.getElementById('fname').innerHTML="Firstname name is required";
+			alert("Please Enter the First Name...");
+			return false;
+		}
+			
+	}
+	
+	var last=function()
+	{
+		var lastname=document.getElementById('lname').value;
+		if(lastname=="")
+		{
+			document.getElementById('lname').innerHTML="lastname name is required";
+			alert("Please Enter the last name...");
+			return false;
+		}
+	}
+	
+	var cno=function()
+	{
+		var cno=document.getElementById('contactno').value;
+		if(cno=="")
+		{
+			alert("Please enter 10 digit valid mobile number");
+			return false;
+		}		
+		
+	}
+	
+	var pass=function()
+	{
+		var password=document.getElementById('pass').value;
+		if(password=="")
+		{
+			document.getElementById('pass').innerHTML="Password is required";
+			return false;
+		}
+		
+		if((password.length<=5) || (password.length>20))
+		{
+			document.getElementById('pass').innerHTML="password length must be between 5 and 20";
+			return false;
+		}
+		
+	}
+	var cpass=function()
+	{
+		var confirmpassword=document.getElementById('cpass').value;
+		if(confirmpassword=="")
+		{
+			document.getElementById('confirmpassword').innerHTML="confirm password is required";
+			return false;
+		}
+	
+	}
+	var emailval=function()
+	{
+		var emailid = document.getElementById('email').value;
+		if(emailid =="")
+		{
+			document.getElementById('email').innerHTML="email is name is required";
+			alert("Please enter the valid email id containing '@' and '.domain' format... ");
+			return false;
+		}
+		
+	}
+	
+	var check=function()
+	{
+		
+		var password=document.getElementById('pass').value;
+		var confirmpassword=document.getElementById('cpass').value;
+	
+		if(password == confirmpassword)
+		{
+			document.getElementById('message').style.color = 'green';
+			document.getElementById('message').innerHTML = 'Password is matching';
+		}
+	
+		else
+		{
+			document.getElementById('message').style.color = 'red';
+			document.getElementById('message').innerHTML = 'Password is not matching';
+			return false;
+		}
+				
+	}
+		
+	</script>
+		
+</head>
+
+<body>
+	<div>
+	
+	<img src="238402.png" height="100" width="300">
+	<ul>
+		<li><a href="login.php">LOG IN</a><li>
+		<li><a href="Aboutus.html">ABOUT US</a></li>
+	</ul>
+	
+	<h2 style="font-family:Comic Sans Ms">Register Here ..!!!</h2>
+	<form action="simpleinsert.php" method="POST" onsubmit="return val()">
+		<span id='firstname' class="text-danger"></span><h1>Firstname</h1>
+		<input type="text"  placeholder="Please enter the Firstname" id="fname" name="fname"  required>
+		
+		<span id='lastname' class="text-danger"></span><h1>Lastname<h1>
+		<input type="text"  placeholder="Please enter the Lastname" id="lname" name="lname" onkeypress="val();" onclick="val();" required>
+				
+		<span id='contactno' class="text-danger" ></span><h1>ContactNo<h1>
+		<input type="text" placeholder="Please Enter PhoneNo" id="contactno" name="contactno" onkeypress="last();" onclick="last();" pattern="[7-9]{1}[0-9]{9}" title="Please enter 10 digit Phone number"  required>
+	
+		<span id='email' class="text-danger"></span><h1>Email id</h1>
+		<input type="email"  placeholder="Please Enter your Email id" id="email" name="email" onkeypress="cno();" onclick="cno();" required>
+		
+		<span id='password' class="text-danger"></span><h1>Password</h1>
+		<input type="password"  placeholder="Please Enter the Password" id="pass" name="pass" onkeyup="emailval();" onclick="emailval();" required>
+		
+		<span id='confirm password' class="text-danger"></span><h1>Confirm Password</h1>	
+		<input type="password"  placeholder="Please Re-enter the Password" id="cpass" onkeyup="check();" onclick="pass();" required>
+		
+		<span id='message'></span>
+	
+	<div>
+		<h1>Gender</h1>
+		<input type="radio" value="male" name="gender"><label for="male" required>Male</label>
+		<input type="radio" value="female" name="gender"><label for="female" required>Female</label>
+	</div>
+	
+	<input type="Submit" name="Submit">
+	
+	</form>
+	</div>	
+</body>
+</html>
